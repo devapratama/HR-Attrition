@@ -19,7 +19,7 @@ Tingginya tingkat attrition tidak hanya menyebabkan meningkatnya biaya rekrutmen
 ## Cakupan Proyek
 Proyek ini akan mencakup beberapa langkah utama:
 1. **Analisis data eksplorasi (EDA):** Memahami pola dan hubungan dalam data, serta mengeksplorasi faktor-faktor yang berkontribusi terhadap attrition.
-2. **Preprocessing dan rekayasa fitur:** Membersihkan data, mengonversi fitur kategorikal menjadi numerik, normalisasi data, dan mengatasi ketidakseimbangan kelas.
+2. **Preprocessing dan rekayasa fitur:** Membersihkan data, mengonversi fitur kategorikal menjadi numerik, normalisasi data, membagi data, dan mengatasi ketidakseimbangan kelas.
 3. **Pengembangan model prediktif:** Menggunakan algoritma machine learning untuk memprediksi karyawan yang berisiko tinggi keluar.
 4. **Pembuatan business dashboard:** Menggunakan Tableau untuk menyajikan informasi kunci terkait tingkat attrition secara visual dan interaktif.
 5. **Penyusunan rekomendasi berbasis data:** Memberikan saran strategis untuk mengurangi tingkat attrition.
@@ -100,7 +100,7 @@ Tingkat attrition perusahaan saat ini adalah **16,92%**, yang menunjukkan bahwa 
    - Menggunakan `BinaryEncoder` dan `OneHotEncoder` untuk mengonversi fitur kategorikal menjadi numerik.
 3. **Scaling:**
    - Data dinormalisasi menggunakan `StandardScaler` untuk memastikan semua fitur berkontribusi secara setara dalam training model tanpa satu fitur mendominasi karena skala yang berbeda
-4. **Split Data dan Mengatasi Ketidakseimbangan Kelas:**
+4. **Membagi Data dan Mengatasi Ketidakseimbangan Kelas:**
    - Data dibagi 80:20 untuk pelatihan dan pengujian sebelum oversampling untuk mencegah data leakage. SMOTE diterapkan pada set pelatihan untuk mengatasi ketidakseimbangan kelas target Attrition, menghasilkan sampel sintetis tanpa mempengaruhi data uji.
 
 ### Model Prediktif
