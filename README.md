@@ -97,23 +97,23 @@ Tingkat attrition perusahaan saat ini adalah **16,92%**, yang menunjukkan bahwa 
 1. **Handling Missing Values:**
    - Menghapus baris dengan kolom `Attrition` yang kosong. Karena memiliki 28% nilai kosong, kita tidak bisa mengisi (imputasi) kolom Attrition ini tanpa risiko menambahkan bias signifikan. Dengan menghapus baris, kita memastikan hanya data lengkap yang digunakan.
 2. **Encoding Categorical Features:**
-   - Menggunakan `LabelEncoder` untuk mengonversi fitur kategorikal menjadi numerik.
+   - Menggunakan `BinaryEncoder` dan `OneHotEncoder` untuk mengonversi fitur kategorikal menjadi numerik.
 3. **Scaling:**
-   - Data dinormalisasi menggunakan `StandardScaler` untuk memastikan fitur berada pada skala yang sama.
-4. **Mengatasi Ketidakseimbangan Kelas:**
-   - Menggunakan SMOTE untuk oversampling kelas minoritas (attrition = 1) karena variabel target `Attrition` tidak seimbang,.
+   - Data dinormalisasi menggunakan `StandardScaler` untuk memastikan semua fitur berkontribusi secara setara dalam training model tanpa satu fitur mendominasi karena skala yang berbeda
+4. **Split Data dan Mengatasi Ketidakseimbangan Kelas:**
+   - Data dibagi 80:20 untuk pelatihan dan pengujian sebelum oversampling untuk mencegah data leakage. SMOTE diterapkan pada set pelatihan untuk mengatasi ketidakseimbangan kelas target Attrition, menghasilkan sampel sintetis tanpa mempengaruhi data uji.
 
 ### Model Prediktif
 Model yang digunakan:
 
-| **Metrik**      | **Random Forest** | **XGBoost**   |
-|-----------------|-------------------|---------------|
-| **Accuracy**    | 91.48%            | 90.57%        |
-| **Precision**   | 93.90%            | 92.73%        |
-| **Recall**      | 88.41%            | 87.83%        |
-| **F1-Score**    | 91.04%            | 90.31%        |
+| **Metrik**      | **KNN**  | **Random Forest** | **XGBoost**   |
+|------------------|----------|-------------------|---------------|
+| **Accuracy**     | 73.11%   | 84.91%            | 85.47%        |
+| **Precision**    | 82.60%   | 97.69%            | 95.38%        |
+| **Recall**       | 84.12%   | 85.84%            | 87.77%        |
+| **F1-Score**     | 83.35%   | 91.36%            | 91.42%        |
 
-Hasil menunjukkan bahwa **Random Forest** memiliki performa terbaik dengan akurasi mencapai 91.48%.
+Hasil menunjukkan bahwa **XGBoost** memiliki performa terbaik dengan akurasi mencapai 85.47%.
 
 ---
 
@@ -131,7 +131,7 @@ Dashboard dapat diakses melalui [link berikut](https://public.tableau.com/app/pr
 ---
 
 ## Conclusion
-Proyek ini berhasil mengidentifikasi faktor-faktor utama yang memengaruhi tingkat attrition di Jaya Jaya Maju, yaitu kepuasan lingkungan, kepuasan kerja, dan keseimbangan kehidupan kerja. Model prediktif yang dikembangkan menggunakan Random Forest dengan akurasi 91.48% dapat membantu perusahaan mengidentifikasi karyawan berisiko tinggi dengan akurasi yang baik. Dashboard yang dibuat menyediakan alat visualisasi untuk memantau faktor-faktor terjadinya attrition.
+Proyek ini berhasil mengidentifikasi faktor-faktor utama yang memengaruhi tingkat attrition di Jaya Jaya Maju, yaitu kepuasan lingkungan, kepuasan kerja, dan keseimbangan kehidupan kerja. Model prediktif yang dikembangkan menggunakan XGBoost dengan akurasi 85.47% dapat membantu perusahaan mengidentifikasi karyawan berisiko tinggi dengan akurasi yang cukup baik. Dashboard yang dibuat menyediakan alat visualisasi untuk memantau faktor-faktor terjadinya attrition.
 
 ---
 
